@@ -1,0 +1,9 @@
+
+.idea/$CACHE_FILE$
+.idea/.gitignore
+.idea/misc.xml
+.idea/mockups.iml
+.idea/modules.xml
+.idea/vcs.xml
+index.html
+elm-stuff/
