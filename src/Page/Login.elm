@@ -1,13 +1,9 @@
-module Login exposing (..)
+module Page.Login exposing (Model, Msg, init, update, view)
 
-import Browser
 import Html exposing (Attribute, Html, button, form, input, text)
 import Html.Attributes exposing (placeholder, style, type_, value)
 import Html.Events exposing (onInput)
-
-
-main =
-    Browser.sandbox { init = init, update = update, view = view }
+import Skeleton exposing (Warning(..))
 
 
 type alias Model =
@@ -36,8 +32,18 @@ update msg model =
             { model | password = password }
 
 
-view : Model -> Html Msg
+view : Model -> Skeleton.Details Msg
 view model =
+    { title = "Login"
+    , header = [ Skeleton.loginSegment ]
+    , warning = NoProblems
+    , attrs = []
+    , kids = [ viewContent model ]
+    }
+
+
+viewContent : Model -> Html Msg
+viewContent model =
     form formAttributes
         [ viewInput "text" "Name" model.name Name
         , viewInput "password" "Password" model.password Password
